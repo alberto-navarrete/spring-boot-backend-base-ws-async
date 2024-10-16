@@ -2,6 +2,7 @@ package com.stefanini.fg.sincronizaorden.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/sincronizaOrden")
+@RequestMapping("/sincroniza")
 public class SincronizaOrdenController {
 	
 	@Autowired
@@ -22,10 +23,10 @@ public class SincronizaOrdenController {
     @Operation(summary = "Sincroniza Orden: Se encarga de RECIBIR la informacion de "
     		+ "las ordenes a las sucursales que corresponden y actualizar la Base de Datos "
     		+ "de la sucursal.")
-    @PostMapping("/{orden}")
+    @PostMapping("/orden")
     public void sincronizaOrden(
     		@Parameter(description = "Orden a cargar") 
-    		String orden) {
+    		@RequestBody String orden) {
     	
     	log.info("Recibiendo solicitud de Sincronizacion de Orden ODEN RECIBIDA {}",orden);
     	

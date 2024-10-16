@@ -17,6 +17,7 @@ public class SincronizaOrdenServiceImpl implements SincronizaOrdenService {
 	@Override
 	public CompletableFuture<String> llamaServicioSincronizaInformacion(String input) {
 		
+		long inicio = System.currentTimeMillis();
 		log.info("Ejecutando el método asincrónicamente con la entrada: {}", input);
         
         try {
@@ -27,7 +28,7 @@ public class SincronizaOrdenServiceImpl implements SincronizaOrdenService {
             Thread.currentThread().interrupt();
         }
         
-        log.info("Método finalizado para el input: {}", input);
+        log.info("Método finalizado en TIEMPO {} con INPUT: {} ",(System.currentTimeMillis()-inicio),input);
         
         return CompletableFuture.completedFuture("Resultado para: " + input);
     }

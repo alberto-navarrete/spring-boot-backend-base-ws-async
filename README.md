@@ -28,3 +28,7 @@ Este servicio permite gestionar órdenes de manera asíncrona utilizando Spring 
 3. Ejecuta la aplicación
 
     mvn spring-boot:run
+    
+4. PRUEBA LA APLICACIÓN
+
+    curl --header "Content-Type: application/json" --request POST --data '{"orden":"xyz","valores":"xyz"}' http://localhost:8080/sincroniza/orden
